@@ -1,4 +1,4 @@
-# Kubernetes Spring boot Web Application with Horizontal Pod Autoscaler which expose the Http Custom Metrics on Google Cloud Cluster Environment
+# Kubernetes Spring boot Web Application with Horizontal Pod Autoscaler which expose the http Custom Metrics on GKE Environment
 
 
 This repo contains, Autoscaling of Spring boot Web Application (spring-boot-k8s-hpa-0.0.1-SNAPSHOT.jar) with Horizontal Pod Autoscaler which exposes the Http Custom matrics in Kubernetes Google cloud cluster environment.
