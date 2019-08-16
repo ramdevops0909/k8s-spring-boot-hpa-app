@@ -969,6 +969,36 @@ You may need to wait three minutes before you can see more pods joining the depl
 
 ```bash
 kubectl get pods
+Output:
+------
+root@master:~# kubectl get pods
+NAME                        READY   STATUS    RESTARTS   AGE
+backend-54db7469bf-66wf5    1/1     Running   0          3m
+backend-54db7469bf-8mqx8    1/1     Running   2          3d17h
+backend-54db7469bf-fq922    1/1     Running   0          3m15s
+backend-54db7469bf-j4ggl    1/1     Running   0          2m44s
+backend-54db7469bf-kvqf9    1/1     Running   0          3m
+backend-54db7469bf-sslrw    1/1     Running   0          2m44s
+backend-54db7469bf-t62ss    1/1     Running   0          3m15s
+
+kubectl get hpa
+Output:
+-------
+root@master:~# kubectl get hpa
+NAME              REFERENCE            TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+spring-boot-hpa   Deployment/backend   94/10     1         10        4          3d17h
+root@master:~# kubectl get hpa
+NAME              REFERENCE            TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+spring-boot-hpa   Deployment/backend   94/10     1         10        4          3d17h
+root@master:~# kubectl get hpa
+NAME              REFERENCE            TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+spring-boot-hpa   Deployment/backend   94/10     1         10        4          3d17h
+root@master:~# kubectl get hpa
+NAME              REFERENCE            TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+spring-boot-hpa   Deployment/backend   91/10     1         10        5          3d17h
+root@master:~# kubectl get hpa
+NAME              REFERENCE            TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
+spring-boot-hpa   Deployment/backend   91/10     1         10        6          3d17h
 ```
 
 The autoscaler will remove pods from the deployment every 5 minutes.
@@ -977,5 +1007,11 @@ You can inspect the event and triggers in the HPA with:
 
 ```bash
 kubectl get hpa spring-boot-hpa
+
+Output:
+-------
+root@master:~# kubectl get hpa spring-boot-hpa
+NAME              REFERENCE            TARGETS     MINPODS   MAXPODS   REPLICAS   AGE
+spring-boot-hpa   Deployment/backend   55500m/10   1         10        10         3d17h
 
 ```
